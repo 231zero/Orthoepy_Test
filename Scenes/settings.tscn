@@ -1,0 +1,290 @@
+[gd_scene load_steps=16 format=3 uid="uid://dafmdpgkkws2j"]
+
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="1_22pkc"]
+[ext_resource type="Texture2D" uid="uid://cugupoakjq8st" path="res://Sprites/button_outer_shadow.png" id="1_bp0pr"]
+[ext_resource type="FontFile" uid="uid://b7ka8etnt22qj" path="res://Font/PTSansCaption-Regular.ttf" id="2_imp10"]
+[ext_resource type="Texture2D" uid="uid://xsp2m5judq7k" path="res://Sprites/close.png" id="3_6drwd"]
+[ext_resource type="PackedScene" uid="uid://bqrkvvpihsbp1" path="res://Scenes/settings_button.tscn" id="5_tsskp"]
+[ext_resource type="Texture2D" uid="uid://605sd0opflqv" path="res://Sprites/icon_sound_off.png" id="7_ce7ji"]
+[ext_resource type="Texture2D" uid="uid://dx7tc0gbc1apk" path="res://Sprites/icon_music.png" id="9_ndc85"]
+[ext_resource type="Texture2D" uid="uid://bkve73s80r4ss" path="res://Sprites/icon_music_off.png" id="10_u3yr1"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1hbx0"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_sy240"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_pfmll"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_8i3db"]
+
+[sub_resource type="Animation" id="Animation_5id4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.239216, 0.239216, 0.239216, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Question_Tab:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Question_Tab/VBoxContainer/MarginContainer2/Sound/sound_on/TextureRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Question_Tab/VBoxContainer/MarginContainer2/Sound/sound_on/upper_sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_xle47"]
+resource_name = "popup"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.239216, 0.239216, 0.239216, 0), Color(0.239216, 0.239216, 0.239216, 0.501961)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Question_Tab:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.435, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjoc2"]
+_data = {
+"RESET": SubResource("Animation_5id4c"),
+"popup": SubResource("Animation_xle47")
+}
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_22pkc")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -5000.0
+offset_top = -5000.0
+offset_right = 5000.0
+offset_bottom = 5000.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.239216, 0.239216, 0.239216, 0)
+metadata/_edit_lock_ = true
+
+[node name="Question_Tab" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(500, 310)
+layout_mode = 0
+offset_left = -250.0
+offset_top = -155.0
+offset_right = 250.0
+offset_bottom = 155.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(250, 155)
+texture = ExtResource("1_bp0pr")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="Question_Tab"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+
+[node name="close" type="Button" parent="Question_Tab/MarginContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+disabled = true
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Question_Tab/MarginContainer/close"]
+modulate = Color(0, 0, 0, 0.392157)
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(18, 18)
+mouse_filter = 2
+texture = ExtResource("3_6drwd")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Question_Tab"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="MarginContainer" type="MarginContainer" parent="Question_Tab/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Label" type="Label" parent="Question_Tab/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.152941, 0.152941, 0.152941, 1)
+theme_override_fonts/font = ExtResource("2_imp10")
+theme_override_font_sizes/font_size = 35
+text = "Настройки"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Question_Tab/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_right = 70
+
+[node name="Sound" type="HBoxContainer" parent="Question_Tab/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="Question_Tab/VBoxContainer/MarginContainer2/Sound"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.396078, 0.396078, 0.396078, 1)
+theme_override_fonts/font = ExtResource("2_imp10")
+theme_override_font_sizes/font_size = 30
+text = "Звук"
+vertical_alignment = 1
+
+[node name="sound_on" parent="Question_Tab/VBoxContainer/MarginContainer2/Sound" instance=ExtResource("5_tsskp")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_1hbx0")
+flat = true
+
+[node name="sound_off" parent="Question_Tab/VBoxContainer/MarginContainer2/Sound" instance=ExtResource("5_tsskp")]
+layout_mode = 2
+button_pressed = false
+button_group = SubResource("ButtonGroup_sy240")
+flat = true
+
+[node name="TextureRect" parent="Question_Tab/VBoxContainer/MarginContainer2/Sound/sound_off" index="2"]
+texture = ExtResource("7_ce7ji")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Question_Tab/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_right = 70
+
+[node name="Music" type="HBoxContainer" parent="Question_Tab/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="Question_Tab/VBoxContainer/MarginContainer3/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.396078, 0.396078, 0.396078, 1)
+theme_override_fonts/font = ExtResource("2_imp10")
+theme_override_font_sizes/font_size = 30
+text = "Музыка"
+vertical_alignment = 1
+
+[node name="music_on" parent="Question_Tab/VBoxContainer/MarginContainer3/Music" instance=ExtResource("5_tsskp")]
+layout_mode = 2
+button_pressed = false
+button_group = SubResource("ButtonGroup_pfmll")
+flat = true
+
+[node name="TextureRect" parent="Question_Tab/VBoxContainer/MarginContainer3/Music/music_on" index="2"]
+texture = ExtResource("9_ndc85")
+
+[node name="music_off" parent="Question_Tab/VBoxContainer/MarginContainer3/Music" instance=ExtResource("5_tsskp")]
+layout_mode = 2
+button_pressed = false
+button_group = SubResource("ButtonGroup_8i3db")
+flat = true
+
+[node name="TextureRect" parent="Question_Tab/VBoxContainer/MarginContainer3/Music/music_off" index="2"]
+texture = ExtResource("10_u3yr1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kjoc2")
+}
+
+[connection signal="pressed" from="Question_Tab/MarginContainer/close" to="." method="_on_close_pressed"]
+[connection signal="toggled" from="Question_Tab/VBoxContainer/MarginContainer2/Sound/sound_on" to="." method="_on_sound_on_toggled"]
+[connection signal="toggled" from="Question_Tab/VBoxContainer/MarginContainer2/Sound/sound_off" to="." method="_on_sound_off_toggled"]
+[connection signal="toggled" from="Question_Tab/VBoxContainer/MarginContainer3/Music/music_on" to="." method="_on_music_on_toggled"]
+[connection signal="toggled" from="Question_Tab/VBoxContainer/MarginContainer3/Music/music_off" to="." method="_on_music_off_toggled"]
+
+[editable path="Question_Tab/VBoxContainer/MarginContainer2/Sound/sound_off"]
+[editable path="Question_Tab/VBoxContainer/MarginContainer3/Music/music_on"]
+[editable path="Question_Tab/VBoxContainer/MarginContainer3/Music/music_off"]
