@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://sdxcbtacg1my"]
+
+[ext_resource type="FontFile" uid="uid://b7ka8etnt22qj" path="res://Font/PTSansCaption-Regular.ttf" id="1_cid3j"]
+
+[node name="text" type="RichTextLabel"]
+custom_minimum_size = Vector2(600, 40)
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.509804, 0.509804, 0.509804, 1)
+theme_override_fonts/mono_font = ExtResource("1_cid3j")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]fdsfsdfsdfsfds"
